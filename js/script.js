@@ -59,30 +59,26 @@ createApp({
             ],
             
             activeImage: 0,
-            autoScroll: false
+            autoScroll: null
         };
     },
     created(){
-        this.autoScroll = setInterval(() => {
-            this.nextImage()
-        }, 3000);
+        this.startAutoScroll();
     },
     methods: {
         changeImg(index){
             this.activeImage = index;
-            console.log(index)
-            index++
         },
         nextImage(){
             this.activeImage++;
-            if(this.activeImage > this.images.lenght - 1){
-                this.activeImage = 0
+            if(this.activeImage >= this.images.length){
+                this.activeImage = 0;
             }
         },
         previousImage(){
             this.activeImage--;
             if(this.activeImage < 0){
-                this.activeImage = this.images.lenght - 1
+                this.activeImage = this.images.length - 1;
             }
         },
         startAutoScroll(){
